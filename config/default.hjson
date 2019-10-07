@@ -1,0 +1,5 @@
+{
+  concurrent: 1
+  srcGlob: ../geojsons-koji/*.geojsons
+}
+
