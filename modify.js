@@ -1,7 +1,8 @@
 module.exports = (f) => {
+  let zoom = parseInt(f.properties['S_AREA']) ? 11 : 10
   let properties = {}
   for (let key of Object.keys(f.properties)) {
-    if (['KEY_CODE', 'MOJI'].includes(key)) {
+    if (['AREA', 'JINKO', 'KEY_CODE', 'MOJI', 'SETAI'].includes(key)) {
       properties[key.toLowerCase()] = key === 'KEY_CODE' ?
         parseInt(f.properties[key]) : f.properties[key]
     }
@@ -9,8 +10,8 @@ module.exports = (f) => {
   f.properties = properties
   f.tippecanoe = {
     layer: 'admin',
-    minzoom: 11,
-    maxzoom: 11
+    minzoom: zoom,
+    maxzoom: zoom 
   }
   return f
 }
